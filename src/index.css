@@ -1,0 +1,100 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+}
+
+#root {
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.board {
+  display: flex;
+  max-width: 420px;
+  flex-wrap: wrap;
+}
+
+.column {
+  display: flex;
+  flex-direction: column-reverse;
+  cursor: pointer;
+}
+
+.column:hover > .cell--open .cell-hole--player1 {
+  background-color: #F44336 !important;  /* red500 */
+}
+
+.column:hover .cell--open .cell-hole--player2 {
+  background-color: #FFEB3B !important;  /* yellow500 */
+}
+
+.column:hover > .cell--open ~ .cell--open .cell-hole--player1,
+.column:hover > .cell--open ~ .cell--open .cell-hole--player2 {
+  background-color: white !important;  /* default */
+}
+
+.cell {
+  background-color: #304FFE;  /* indigoA700 */
+  height: 60px;
+  width: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cell-hole {
+  background-color: white;  /* default */
+  height: 45px;
+  width: 45px;
+  border-radius: 100%;
+}
+
+.playingPiece {
+  height: 100px;
+  width: 100px;
+  margin: 20px;
+  font-size: 50px;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 420px;
+}
+
+.waiting:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-animation: ellipsis steps(4,end) 900ms infinite;
+  animation: ellipsis steps(4,end) 900ms infinite;
+  content: "\002E\002E\002E";
+  width: 0;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
+}
+
+@-webkit-keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
+}
